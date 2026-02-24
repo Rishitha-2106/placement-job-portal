@@ -1,8 +1,10 @@
 package com.rishitha.jobportal.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import com.rishitha.jobportal.entity.Job;
+import com.rishitha.jobportal.repository.JobRepository;
 import com.rishitha.jobportal.service.JobService;
 
 @RestController
@@ -19,10 +21,12 @@ public class JobController {
     public Job createJob(@RequestBody Job job) {
         return jobService.saveJob(job);
     }
+     @Autowired
+    private JobRepository jobRepository;
 
     @GetMapping
-    public List<Job> getAllJobs() {
-        return jobService.getAllJobs();
+    public List<Job> getAllJobs1() {
+        return jobRepository.findAll();
     }
 
     @GetMapping("/{id}")
