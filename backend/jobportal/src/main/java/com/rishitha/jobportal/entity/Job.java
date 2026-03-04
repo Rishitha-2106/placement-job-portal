@@ -1,41 +1,28 @@
 package com.rishitha.jobportal.entity;
+
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "jobs")
-
 public class Job {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String title;
     private String company;
-    private String location;
-    private Double salary;
 
-    public Job() {}
+    private String title;
 
-        public Job(String title, String company, String location, Double salary) {
-        this.title = title;
-        this.company = company;
-        this.location = location;
-        this.salary = salary;
-    }
+    private String description;
 
-    // Getters and Setters
+    private String jobLink; // external company apply link
 
     public Long getId() {
         return id;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getCompany() {
@@ -46,21 +33,29 @@ public class Job {
         this.company = company;
     }
 
-    public String getLocation() {
-        return location;
+    public String getTitle() {
+        return title;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public Double getSalary() {
-        return salary;
+    public String getDescription() {
+        return description;
     }
 
-    public void setSalary(Double salary) {
-        this.salary = salary;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
+    public String getJobLink() {
+        return jobLink;
+    }
 
+    public void setJobLink(String jobLink) {
+        this.jobLink = jobLink;
+    }
+
+    // getters setters
 }
